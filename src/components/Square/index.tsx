@@ -1,5 +1,4 @@
 import { Box } from "@mui/system";
-import React from "react";
 
 export const Square = ({
   n,
@@ -19,7 +18,7 @@ export const Square = ({
         minHeight: "40px",
         maxHeight: "40px",
         outline: "1px solid black",
-        backgroundColor: isActive ? "blue" : "#fff",
+        backgroundColor: isActive ? "#1496F1" : "#fff",
       }}
     ></Box>
   );

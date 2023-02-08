@@ -1,4 +1,4 @@
-import ky, { KyResponse } from "ky";
+import ky from "ky";
 
 export type IModeName = "Easy" | "Normal" | "Hard";
 

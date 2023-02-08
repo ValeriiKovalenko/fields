@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { IMode, IModeName } from "../../api";
 import {
   FormControl,
@@ -10,25 +9,14 @@ import {
 type SelectProps = {
   options: IMode[];
   onChange: (event: SelectChangeEvent) => void;
-  value?: IMode;
+  value: IMode;
 };
 
-export const Select = ({
-  options,
-  onChange,
-  value = { name: "Easy", field: 5 },
-}: SelectProps) => {
-  console.log(value);
-
+export const Select = ({ options, onChange, value }: SelectProps) => {
   return (
     <FormControl fullWidth>
       <InputLabel id="select-label">Pick mode</InputLabel>
-      <MuiSelect
-        // labelId="select-label"
-        onChange={onChange}
-        value={`${value.field}`}
-        label="Pick mode"
-      >
+      <MuiSelect onChange={onChange} value={`${value.field}`} label="Pick mode">
         {options.map((option) => {
           return (
             <MenuItem key={option.field} value={`${option.field}`}>

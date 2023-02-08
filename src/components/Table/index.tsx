@@ -1,15 +1,12 @@
-import { Stack, Typography } from "@mui/material";
-import { IMode, IModeName } from "../../api";
+import { Box, Stack, Typography } from "@mui/material";
+import { IMode } from "../../api";
 
 type TableProps = {
-  activeCells?: number[];
-  activeMode?: IMode;
+  activeCells: number[];
+  activeMode: IMode;
 };
 
 export const Table = ({ activeCells, activeMode }: TableProps) => {
-  if (!activeMode || !activeCells) {
-    return null;
-  }
   const coordinates = activeCells.map((cell) => ({
     row: Math.ceil(cell / activeMode.field),
     column:
@@ -17,22 +14,32 @@ export const Table = ({ activeCells, activeMode }: TableProps) => {
         ? activeMode.field
         : cell % activeMode.field,
   }));
-  console.log(coordinates);
 
   return (
-    <Stack direction="column" maxHeight={500} overflow="scroll">
-      <Typography>Hover squares</Typography>
-      {coordinates.length && (
-        <Stack direction="column">
-          {coordinates.map((n) => {
-            return (
+    <Stack direction="column" sx={{ maxHeight: "700px" }}>
+      <Typography variant="h4" gutterBottom fontWeight={500}>
+        Hover squares
+      </Typography>
+
+      <Stack direction="column" spacing={1} overflow="scroll">
+        {coordinates.map((n) => {
+          return (
+            <Box
+              key={`table-${n.row}-${n.column}`}
+              sx={{
+                p: 2,
+                backgroundColor: "rgb(250,247,220)",
+                borderRadius: "4px",
+                border: "solid 1px rgb(249,237,204)",
+              }}
+            >
               <Typography>
-                Row: {n.row} _ Column: {n.column}
+                row {n.row} col {n.column}
               </Typography>
-            );
-          })}
-        </Stack>
-      )}
+            </Box>
+          );
+        })}
+      </Stack>
     </Stack>
   );
 };

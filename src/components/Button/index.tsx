@@ -1,5 +1,14 @@
-import React from "react";
 import { Button as MuiButton } from "@mui/material";
-export const Button = () => {
-  return <MuiButton variant="contained">Start</MuiButton>;
+export const Button = ({
+  onClick,
+  isActive,
+}: {
+  onClick: () => void;
+  isActive: boolean;
+}) => {
+  return (
+    <MuiButton variant="contained" onClick={onClick}>
+      {isActive ? "Reset" : "Start"}
+    </MuiButton>
+  );
 };
