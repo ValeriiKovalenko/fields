@@ -55,8 +55,9 @@ function App() {
       spacing={5}
       px={5}
       py={2}
+      overflow="auto"
     >
-      <Stack direction="column" alignItems="flex-start">
+      <Stack direction="column" alignItems="flex-start" flexShrink={0}>
         <Stack direction="row" spacing={1} mb={2}>
           <Select
             options={modeList}
