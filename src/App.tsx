@@ -53,7 +53,7 @@ function App() {
       direction="row"
       justifyContent="space-between"
       spacing={5}
-      px={10}
+      px={5}
       py={2}
     >
       <Stack direction="column" alignItems="flex-start">
